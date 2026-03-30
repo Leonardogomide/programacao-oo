@@ -4,6 +4,5 @@ Repositorio dedicado a materia POO
 
 Equipe
 
-Leonardo Martini Gomide
-Bruno Eduardo Pereira
+Leonardo Martini Gomide,
 Julia Hayashida Severo
