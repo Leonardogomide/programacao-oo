@@ -1,54 +1,48 @@
+/// Classe simples de Data para mostrar datas.
+/// Campos privados para dia, mês e ano.
 class Data {
-
+  // Dia da data (1-31)
   late int _dia;
+  
+  // Mês da data (1-12)
   late int _mes;
+  
+  // Ano da data
   late int _ano;
 
+  /// Construtor que cria a data com dia, mês e ano.
+  /// Assume valores válidos
   Data(int dia, int mes, int ano) {
-    setDia(dia);
-    setMes(mes);
-    setAno(ano);
+    _dia = dia;   // Coloca o dia
+    _mes = mes;   // Coloca o mês
+    _ano = ano;   // Coloca o ano
   }
 
-  void setDia(int dia) {
-    if (dia < 1 || dia > 31){
-      throw "Dia deve estar entre 1 e 31";
-    }
-    this._dia = dia;
-  }
-
+  /// Pega o dia
   int getDia() {
-    return this._dia;
+    return _dia;
   }
 
-  void setMes(int mes) {
-    if (mes < 1 || mes > 12){
-      throw "Mês deve estar entre 1 e 12";
-    }
-    this._mes = mes;
-  }
-
+  /// Pega o mês
   int getMes() {
-    return this._mes;
+    return _mes;
   }
 
-  void setAno(int ano) {
-    if (ano <= 0){
-      throw "Ano deve ser maior que 0";
-    }
-    this._ano = ano;
-  }
-
+  /// Pega o ano
   int getAno() {
-    return this._ano;
+    return _ano;
   }
 
+  /// Mostra a data no formato DD/MM/AAAA
   void exibirData() {
-    print(
-      getDia().toString().padLeft(2, '0') + '/' +
-      getMes().toString().padLeft(2, '0') + '/' +
-      getAno().toString().padLeft(4, '0')
-    );
+    // Formata dia com 2 dígitos
+    String diaStr = _dia.toString().padLeft(2, '0');
+    // Formata mês com 2 dígitos
+    String mesStr = _mes.toString().padLeft(2, '0');
+    // Formata ano com 4 dígitos
+    String anoStr = _ano.toString().padLeft(4, '0');
+    
+    // Imprime com barras
+    print(diaStr + '/' + mesStr + '/' + anoStr);
   }
-
 }

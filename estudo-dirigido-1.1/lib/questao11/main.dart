@@ -1,29 +1,25 @@
-/*
-Crie uma classe Triangulo com os seguintes atributos obrigatórios:
-• double lado1
-• double lado2
-• double lado3
-• String caractere
-Implemente um construtor que receba todos esses valores. Crie os seguintes métodos:
-• calcularPerimetro() → retorna o perímetro do triângulo
-• calcularArea() → retorna a área do triângulo usando a fórmula de Heron
-• desenharEsquerda() → desenha um triângulo alinhado à esquerda
-• desenharCentralizado() → desenha um triângulo centralizado
-• exibirResumo() → mostra os lados, a área e o perímetro
-No main(), instancie exatamente 2 triângulos diferentes, exiba o resumo de cada um e desenhe ambos nas duas formas pedidas.
-*/
-
 import 'triangulo.dart';
 
+// Testa 2 triângulos
 void main() {
-  Triangulo t1 = new Triangulo(6, 8, 10, 'A');
-  Triangulo t2 = new Triangulo(7, 7, 7, 'B');
-
+  // Triângulo 1: 6,8,10 'A'
+  Triangulo t1 = Triangulo(6, 8, 10, 'A');
+  print('Triângulo 1:');
   t1.exibirResumo();
+  print('Esquerda:');
   t1.desenharEsquerda();
+  print('');
+  print('Centralizado:');
   t1.desenharCentralizado();
+  print('');
 
+  // Triângulo 2: equilátero 7,7,7 'B'
+  Triangulo t2 = Triangulo(7, 7, 7, 'B');
+  print('Triângulo 2:');
   t2.exibirResumo();
+  print('Esquerda:');
   t2.desenharEsquerda();
+  print('');
+  print('Centralizado:');
   t2.desenharCentralizado();
 }

@@ -1,5 +1,5 @@
+/// Classe simples de Endereco.
 class Endereco {
-
   late String _rua;
   late int _numero;
   late String _bairro;
@@ -8,92 +8,49 @@ class Endereco {
   late int _cep;
 
   Endereco(String rua, int numero, String bairro, String cidade, String estado, int cep) {
-    setRua(rua);
-    setNumero(numero);
-    setBairro(bairro);
-    setCidade(cidade);
-    setEstado(estado);
-    setCep(cep);
-  }
-
-  void setRua(String rua) {
-    if (rua.isEmpty){
-      throw "Rua não pode ser vazia";
-    }
-    this._rua = rua;
+    _rua = rua;
+    _numero = numero;
+    _bairro = bairro;
+    _cidade = cidade;
+    _estado = estado;
+    _cep = cep;
   }
 
   String getRua() {
-    return this._rua;
-  }
-
-  void setNumero(int numero) {
-    if (numero <= 0){
-      throw "Número deve ser maior que 0";
-    }
-    this._numero = numero;
+    return _rua;
   }
 
   int getNumero() {
-    return this._numero;
-  }
-
-  void setBairro(String bairro) {
-    if (bairro.isEmpty){
-      throw "Bairro não pode ser vazio";
-    }
-    this._bairro = bairro;
+    return _numero;
   }
 
   String getBairro() {
-    return this._bairro;
-  }
-
-  void setCidade(String cidade) {
-    if (cidade.isEmpty){
-      throw "Cidade não pode ser vazia";
-    }
-    this._cidade = cidade;
+    return _bairro;
   }
 
   String getCidade() {
-    return this._cidade;
-  }
-
-  void setEstado(String estado) {
-    if (estado.isEmpty){
-      throw "Estado não pode ser vazio";
-    }
-    this._estado = estado;
+    return _cidade;
   }
 
   String getEstado() {
-    return this._estado;
-  }
-
-  void setCep(int cep) {
-    if (cep <= 0){
-      throw "CEP não pode ser vazio";
-    }
-    this._cep = cep;
+    return _estado;
   }
 
   int getCep() {
-    return this._cep;
+    return _cep;
   }
 
   String getCepFormatado() {
-    String cepStr = getCep().toString().padLeft(8, '0');
+    String cepStr = _cep.toString().padLeft(8, '0');
     return cepStr.substring(0, 5) + '-' + cepStr.substring(5);
   }
 
   void exibirEndereco() {
-    print("///");
-    print("Rua: " + getRua() + ", " + getNumero().toString());
-    print("Bairro: " + getBairro());
-    print("Cidade: " + getCidade() + " - " + getEstado());
-    print("CEP: " + getCepFormatado());
-    print("///");
+    print('///');
+    print('Rua: ' + _rua + ', ' + _numero.toString());
+    print('Bairro: ' + _bairro);
+    print('Cidade: ' + _cidade + ' - ' + _estado);
+    print('CEP: ' + getCepFormatado());
+    print('///');
   }
-
 }

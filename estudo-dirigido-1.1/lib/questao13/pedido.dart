@@ -1,58 +1,39 @@
 import '../questao06/produto.dart';
 
+/// Classe Pedido usando Produto da q6.
 class Pedido {
-
   late int _numero;
   late Produto _produto;
   late int _quantidade;
 
   Pedido(int numero, Produto produto, int quantidade) {
-    setNumero(numero);
-    setProduto(produto);
-    setQuantidade(quantidade);
+    _numero = numero;
+    _produto = produto;
+    _quantidade = quantidade;
   }
 
-  void setNumero(int numero) {
-    if (numero <= 0){
-      throw "Número deve ser maior que 0";
-    }
-    this._numero = numero;
+  int getNumero() {
+    return _numero;
   }
 
-  int getNumero(){
-    return this._numero;
+  Produto getProduto() {
+    return _produto;
   }
 
-  void setProduto(Produto produto) {
-    this._produto = produto;
+  int getQuantidade() {
+    return _quantidade;
   }
 
-  Produto getProduto(){
-    return this._produto;
-  }
-
-  void setQuantidade(int quantidade) {
-    if (quantidade <= 0){
-      throw "Quantidade deve ser maior que 0";
-    }
-    this._quantidade = quantidade;
-  }
-
-  int getQuantidade(){
-    return this._quantidade;
-  }
-
-  double calcularTotal(){
-    return getProduto().getPrecoUnitario() * getQuantidade();
+  double calcularTotal() {
+    return _produto.getPrecoUnitario() * _quantidade;
   }
 
   void exibirPedido() {
-    print("Pedido nº: " + getNumero().toString());
-    print("Produto: " + getProduto().getNome());
-    print("Preço unitário: R\$ " + getProduto().getPrecoUnitario().toStringAsFixed(2));
-    print("Quantidade: " + getQuantidade().toString());
-    print("Total: R\$ " + calcularTotal().toStringAsFixed(2));
-    print("---");
+    print('Pedido nº: ' + _numero.toString());
+    print('Produto: ' + _produto.getNome());
+    print('Preço unitário: R\$ ' + _produto.getPrecoUnitario().toStringAsFixed(2));
+    print('Quantidade: ' + _quantidade.toString());
+    print('Total: R\$ ' + calcularTotal().toStringAsFixed(2));
+    print('---');
   }
-
 }

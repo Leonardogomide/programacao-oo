@@ -1,60 +1,48 @@
-class Relogio{
-
+/// Classe simples de Relogio para mostrar horário.
+/// Campos privados para hora, minuto e segundo.
+class Relogio {
+  // Hora do relógio (0-23)
   late int _hora;
+  
+  // Minuto do relógio (0-59)
   late int _minuto;
+  
+  // Segundo do relógio (0-59)
   late int _segundo;
 
-  Relogio(int hora, int minuto, int segundo){
-    this.setHora(hora);
-    this.setMinuto(minuto);
-    this.setSegundo(segundo);
+  /// Construtor que cria o relógio com hora, minuto e segundo.
+  /// Assume valores válidos (junior style)
+  Relogio(int hora, int minuto, int segundo) {
+    _hora = hora;     // Coloca a hora
+    _minuto = minuto; // Coloca o minuto
+    _segundo = segundo; // Coloca o segundo
   }
 
-  void setHora(int hora){
-    validaHora(hora);
-    this._hora = hora;
+  /// Pega a hora atual
+  int getHora() {
+    return _hora; // Retorna a hora privada
   }
 
-  int getHora(){
-    return this._hora;
+  /// Pega o minuto atual
+  int getMinuto() {
+    return _minuto; // Retorna o minuto privado
   }
 
-  void setMinuto(int minuto){
-    validaRangeHorario(minuto);
-    this._minuto = minuto;
+  /// Pega o segundo atual
+  int getSegundo() {
+    return _segundo; // Retorna o segundo privado
   }
 
-  int getMinuto(){
-    return this._minuto;
-  }
-
-  void setSegundo(int segundo){
-    validaRangeHorario(segundo);
-    this._segundo = segundo;
-  }
-
-  int getSegundo(){
-    return this._segundo;
-  }
-
-  void validaRangeHorario(int horario){
-    if(horario > 0 && horario > 59){
-      throw "Horário inválido, permitidos valores apenas de 0 a 59";
-    }
-  }
-
-  void validaHora(int horario){
-    if(horario > 0 && horario > 23){
-      throw "Horário inválido, permitidos valores apenas de 0 a 23";
-    }
-  }
-
+  /// Mostra o horário no formato HH:MM:SS
   void exibirHorario() {
-    print(
-      this.getHora().toString().padLeft(2, '0') + ':' +
-      this.getMinuto().toString().padLeft(2, '0') + ':' +
-      this.getSegundo().toString().padLeft(2, '0')
-    );
-}
-
+    // Pega hora e adiciona zero à esquerda se preciso
+    String horaStr = _hora.toString().padLeft(2, '0');
+    // Pega minuto e adiciona zero à esquerda se preciso
+    String minutoStr = _minuto.toString().padLeft(2, '0');
+    // Pega segundo e adiciona zero à esquerda se preciso
+    String segundoStr = _segundo.toString().padLeft(2, '0');
+    
+    // Imprime tudo junto com :
+    print(horaStr + ':' + minutoStr + ':' + segundoStr);
+  }
 }

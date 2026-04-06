@@ -1,60 +1,50 @@
+/// Classe Quadrado com desenho ASCII.
 class Quadrado {
-
   late double _lado;
   late String _caractere;
 
   Quadrado(double lado, String caractere) {
-    setLado(lado);
-    setCaractere(caractere);
+    _lado = lado;
+    _caractere = caractere;
   }
 
-  void setLado(double lado) {
-    if (lado <= 0){
-      throw "Lado deve ser maior que 0";
-    }
-    this._lado = lado;
+  double getLado() {
+    return _lado;
   }
 
-  double getLado(){
-    return this._lado;
+  String getCaractere() {
+    return _caractere;
   }
 
-  void setCaractere(String caractere) {
-    if (caractere.isEmpty || caractere.length > 1){
-      throw "Caractere deve ter apenas 1 símbolo";
-    }
-    this._caractere = caractere;
+  double calcularArea() {
+    // Lado vezes lado
+    return _lado * _lado;
   }
 
-  String getCaractere(){
-    return this._caractere;
-  }
-
-  double calcularArea(){
-    return getLado() * getLado();
-  }
-
-  double calcularPerimetro(){
-    return getLado() * 4;
+  double calcularPerimetro() {
+    // 4 vezes lado
+    return _lado * 4;
   }
 
   void desenhar() {
-    int tamanho = getLado().round();
+    int tamanho = _lado.round(); // Tamanho do lado em int
+    // Loop para linhas
     for (int i = 0; i < tamanho; i++) {
-      print((getCaractere() + ' ') * tamanho);
+      // Linha com caractere + espaço repetido
+      print((_caractere + ' ') * tamanho);
     }
   }
 
   void exibirResumo() {
-    print("///");
-    print("Lado: " + getLado().toString());
-    print("Área: " + calcularArea().toString());
-    print("Perímetro: " + calcularPerimetro().toString());
-    print("///");
+    print('///');
+    print('Lado: ' + _lado.toString());
+    print('Área: ' + calcularArea().toString());
+    print('Perímetro: ' + calcularPerimetro().toString());
+    print('///');
   }
 
   bool ehIgual(Quadrado outro) {
-    return this._lado == outro._lado;
+    // Igual se mesmo lado (ignora caractere?)
+    return _lado == outro._lado;
   }
-
 }

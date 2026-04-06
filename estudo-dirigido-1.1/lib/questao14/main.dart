@@ -1,25 +1,16 @@
-/*
-Crie uma classe Motor com os seguintes atributos obrigatórios:
-• int potencia
-• String tipo
-Crie uma classe Carro com os seguintes atributos obrigatórios:
-• String modelo
-• Motor motor
-Implemente os construtores para ambas as classes. Crie os seguintes métodos:
-• exibirMotor() → mostra os dados do motor
-• exibirCarro() → mostra o modelo do carro e os dados do motor
-No main(), instancie exatamente 2 carros diferentes, cada um com um motor, e exiba os dados completos.
-*/
-
 import 'carro.dart';
 
+// Testa 2 carros
 void main() {
-  Motor motor1 = new Motor(140, 'Híbrido');
-  Motor motor2 = new Motor(400, 'Esportivo');
+  Motor motor1 = Motor(140, 'Híbrido');
+  Motor motor2 = Motor(400, 'Esportivo');
 
-  Carro carro1 = new Carro('Corolla', motor1);
-  Carro carro2 = new Carro('Ferrari', motor2);
-
+  Carro carro1 = Carro('Corolla', motor1);
+  print('Carro 1:');
   carro1.exibirCarro();
+  print('');
+
+  Carro carro2 = Carro('Ferrari', motor2);
+  print('Carro 2:');
   carro2.exibirCarro();
 }

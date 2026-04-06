@@ -1,67 +1,61 @@
+/// Classe simples de Aluno para calcular notas e aprovação.
+/// Campos privados para nome e notas.
 class Aluno {
-
+  // Nome do aluno
   late String _nome;
+  
+  // Primeira nota
   late double _nota1;
+  
+  // Segunda nota
   late double _nota2;
 
+  /// Construtor que recebe nome, nota1 e nota2
   Aluno(String nome, double nota1, double nota2) {
-    setNome(nome);
-    setNota1(nota1);
-    setNota2(nota2);
+    _nome = nome;    // Nome do aluno
+    _nota1 = nota1;  // Primeira nota
+    _nota2 = nota2;  // Segunda nota
   }
 
-  void setNome(String nome) {
-    if (nome.isEmpty){
-      throw "Nome não pode ser vazio";
-    }
-    this._nome = nome;
-  }
-
+  /// Pega o nome do aluno
   String getNome() {
-    return this._nome;
+    return _nome;
   }
 
-  void setNota1(double nota) {
-    if (nota < 0 || nota > 10){
-      throw "Nota deve estar entre 0 e 10";
-    }
-    this._nota1 = nota;
-  }
-
+  /// Pega a primeira nota
   double getNota1() {
-    return this._nota1;
+    return _nota1;
   }
 
-  void setNota2(double nota) {
-    if (nota < 0 || nota > 10){
-      throw "Nota deve estar entre 0 e 10";
+  /// Pega a segunda nota
+  double getNota2() {
+    return _nota2;
+  }
+
+  /// Calcula a média das duas notas
+  double calcularMedia() {
+    // Soma as notas e divide por 2
+    return (_nota1 + _nota2) / 2;
+  }
+
+  /// Verifica se aprovado (média >= 6)
+  String verificarAprovacao() {
+    // Se média maior ou igual 6, aprovado
+    if (calcularMedia() >= 6) {
+      return 'Aprovado';
     }
-    this._nota2 = nota;
+    // Senão reprovado
+    return 'Reprovado';
   }
 
-  double getNota2(){
-    return this._nota2;
-  }
-
-  double calcularMedia(){
-    return (this._nota1 + this._nota2) / 2;
-  }
-
-  String verificarAprovacao(){
-    if(calcularMedia() >= 6){
-      return "Aprovado";
-    }
-    return "Reprovado";
-  }
-
+  /// Mostra o boletim completo
   void exibirBoletim() {
-    print("////////");
-    print("Nome: " + getNome());
-    print("Nota 1: " + getNota1().toString());
-    print("Nota 2: " + getNota2().toString());
-    print("Média: " + calcularMedia().toString());
-    print("Situação: " + verificarAprovacao());
-    print("////////");
+    print('////////');
+    print('Nome: ' + _nome);
+    print('Nota 1: ' + _nota1.toString());
+    print('Nota 2: ' + _nota2.toString());
+    print('Média: ' + calcularMedia().toString());
+    print('Situação: ' + verificarAprovacao());
+    print('////////');
   }
-
 }

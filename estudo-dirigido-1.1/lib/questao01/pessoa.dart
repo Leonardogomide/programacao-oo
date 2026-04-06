@@ -1,50 +1,34 @@
-/// Classe que representa uma pessoa com nome e idade.
-class Pessoa{
-
-  /// Nome da pessoa
+/// Classe simples de Pessoa para estudo de OO em Dart.
+/// Aqui temos nome e idade privados.
+class Pessoa {
+  // Campo privado para o nome da pessoa
   late String _nome;
   
-  /// Idade da pessoa
+  // Campo privado para a idade da pessoa
   late int _idade;
 
-  /// Construtor que inicializa nome e idade com validação.
-  Pessoa(String nome, int idade){
-      setNome(nome);
-      setIdade(idade);
+  // Construtor simples que recebe nome e idade
+  // Assume que os valores são válidos (estilo junior)
+  Pessoa(String nome, int idade) {
+    _nome = nome;  // Atribui o nome diretamente
+    _idade = idade;  // Atribui a idade diretamente
   }
 
-  /// Define o nome da pessoa.
-  /// Lança uma exceção se o nome estiver vazio.
-  void setNome(String nome){
-    if(nome.length <= 0){
-      throw "Nome não pode ser vazio";
-    }
-    this._nome = nome;
+  // Método para pegar o nome (getter simples)
+  String getNome() {
+    return _nome;  // Retorna o nome privado
   }
 
-  /// Retorna o nome da pessoa.
-  String getNome(){
-    return this._nome;
+  // Método para pegar a idade (getter simples)
+  int getIdade() {
+    return _idade;  // Retorna a idade privada
   }
 
-  /// Define a idade da pessoa.
-  /// Lança uma exceção se a idade for menor que 0.
-  void setIdade(int idade){
-    if(idade < 0){
-      throw "Idade não pode ser menor que 0";
-    }
-    this._idade = idade;
+  // Método para mostrar os dados da pessoa no console
+  void exibirDados() {
+    // Imprime o nome
+    print("Nome: " + _nome);
+    // Imprime a idade
+    print("Idade: " + _idade.toString());
   }
-
-  /// Retorna a idade da pessoa.
-  int getIdade(){
-    return this._idade;
-  }
-
-  /// Exibe os dados da pessoa (nome e idade) no console.
-  void exibirDados(){
-    print("Nome: " + this.getNome());
-    print("Idade: " + this.getIdade().toString());
-  }
-
 }

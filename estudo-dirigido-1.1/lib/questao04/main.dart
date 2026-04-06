@@ -1,37 +1,35 @@
-/*
-Crie uma classe Lampada com os seguintes atributos obrigatórios:
-• bool ligada
-• int quantidadeLigacoes
-• bool queimada
-Implemente um construtor que inicialize a lâmpada como desligada, com zero ligações e não queimada. Crie os seguintes métodos:
-• ligar() → liga a lâmpada
-• desligar() → desliga a lâmpada
-• exibirEstado() → mostra se está ligada, desligada ou queimada
-No main(), instancie 1 lâmpada e simule seu uso, ligando e desligando várias vezes.
-Restrições:
-• após 5 vezes ligando, a lâmpada deve ficar queimada
-• uma lâmpada queimada não pode mais ser ligada
-• a cada vez que ligar, incremente quantidadeLigacoes
-*/
-
 import 'lampada.dart';
 
+// Função principal para testar a lâmpada
 void main() {
-  Lampada lampada = new Lampada();
+  // Cria uma nova lâmpada
+  Lampada lampada = Lampada();
 
-  lampada.ligar();
-  lampada.exibirEstado();
-  lampada.desligar();
-  lampada.exibirEstado();
+  // Primeira sequência
+  print('Teste 1: Ligar');
+  lampada.ligar();           // Liga (ligações=1)
+  lampada.exibirEstado();    // ligada (1)
+  print('Teste 1: Desligar');
+  lampada.desligar();        // Desliga
+  lampada.exibirEstado();    // desligada (1)
+  print('');
 
-  lampada.ligar();
-  lampada.desligar();
-  lampada.ligar();
-  lampada.desligar();
-  lampada.ligar();
-  lampada.desligar();
-  lampada.ligar();
-  lampada.exibirEstado();
-  lampada.ligar();
-  lampada.exibirEstado();
+  // Segunda sequência
+  print('Teste 2: Ligar');
+  lampada.ligar();           // Liga (2)
+  lampada.desligar();        // Desliga
+  print('Teste 2: Ligar');
+  lampada.ligar();           // Liga (3)
+  lampada.desligar();        // Desliga
+  print('Teste 2: Ligar');
+  lampada.ligar();           // Liga (4)
+  lampada.desligar();        // Desliga
+  print('');
+
+  // Teste que queima
+  print('Teste final: Ligar 5+ vezes');
+  lampada.ligar();           // Liga (5) - agora queima na próxima
+  lampada.exibirEstado();    // ligada (5)
+  lampada.ligar();           // Tenta ligar 6 - queima
+  lampada.exibirEstado();    // queimada (5)
 }

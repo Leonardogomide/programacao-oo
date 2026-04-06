@@ -1,103 +1,71 @@
 import 'dart:math';
 
+/// Classe Triangulo com desenho.
 class Triangulo {
-
   late double _lado1;
   late double _lado2;
   late double _lado3;
   late String _caractere;
 
   Triangulo(double lado1, double lado2, double lado3, String caractere) {
-    setLado1(lado1);
-    setLado2(lado2);
-    setLado3(lado3);
-    setCaractere(caractere);
-    if (!_ehValido()){
-      throw "Os lados não formam um triângulo válido";
-    }
+    _lado1 = lado1;
+    _lado2 = lado2;
+    _lado3 = lado3;
+    _caractere = caractere;
+    // Assume lados válidos para triângulo (junior)
   }
 
-  bool _ehValido() =>
-    _lado1 + _lado2 > _lado3 &&
-    _lado1 + _lado3 > _lado2 &&
-    _lado2 + _lado3 > _lado1;
-
-  void setLado1(double v) {
-    if (v <= 0){
-      throw "Lado deve ser maior que 0";
-    }
-    this._lado1 = v;
+  double getLado1() {
+    return _lado1;
   }
 
-  double getLado1(){
-    return this._lado1;
+  double getLado2() {
+    return _lado2;
   }
 
-  void setLado2(double v) {
-    if (v <= 0){
-      throw "Lado deve ser maior que 0";
-    }
-    this._lado2 = v;
+  double getLado3() {
+    return _lado3;
   }
 
-  double getLado2(){
-    return this._lado2;
+  String getCaractere() {
+    return _caractere;
   }
 
-  void setLado3(double v) {
-    if (v <= 0){
-      throw "Lado deve ser maior que 0";
-    }
-    this._lado3 = v;
-  }
-
-  double getLado3(){
-    return this._lado3;
-  }
-
-  void setCaractere(String c) {
-    if (c.isEmpty || c.length > 1){
-      throw "Caractere deve ter apenas 1 símbolo";
-    }
-    this._caractere = c;
-  }
-
-  String getCaractere(){
-    return this._caractere;
-  }
-
-  double calcularPerimetro(){
+  double calcularPerimetro() {
     return _lado1 + _lado2 + _lado3;
   }
 
   double calcularArea() {
+    // Fórmula de Heron
     double s = calcularPerimetro() / 2;
-    return sqrt(s * (s - _lado1) * (s - _lado2) * (s - _lado3));
+    double area = sqrt(s * (s - _lado1) * (s - _lado2) * (s - _lado3));
+    return area;
   }
 
   void desenharEsquerda() {
     int linhas = _lado1.round();
+    // Desenha triângulo à esquerda
     for (int i = 1; i <= linhas; i++) {
-      print((getCaractere() + ' ') * i);
+      print((_caractere + ' ') * i);
     }
   }
 
   void desenharCentralizado() {
     int linhas = _lado1.round();
+    // Desenha centralizado
     for (int i = 1; i <= linhas; i++) {
       String espacos = ' ' * (linhas - i);
-      print(espacos + (getCaractere() + ' ') * i);
+      print(espacos + (_caractere + ' ') * i);
     }
   }
 
   void exibirResumo() {
-    print("///");
-    print("Lado 1: " + getLado1().toString());
-    print("Lado 2: " + getLado2().toString());
-    print("Lado 3: " + getLado3().toString());
-    print("Área: " + calcularArea().toStringAsFixed(2));
-    print("Perímetro: " + calcularPerimetro().toString());
-    print("///");
+    print('///');
+    print('Lado 1: ' + _lado1.toString());
+    print('Lado 2: ' + _lado2.toString());
+    print('Lado 3: ' + _lado3.toString());
+    print('Área: ' + calcularArea().toStringAsFixed(2));
+    print('Perímetro: ' + calcularPerimetro().toString());
+    print('///');
   }
-
 }

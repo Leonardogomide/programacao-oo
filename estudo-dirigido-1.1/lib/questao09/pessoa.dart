@@ -1,67 +1,41 @@
 import '../questao08/endereco.dart';
 
+/// Classe Pessoa com endereço.
 class Pessoa {
-
   late String _nome;
   late int _idade;
   late String _cpf;
   late Endereco _endereco;
 
   Pessoa(String nome, int idade, String cpf, Endereco endereco) {
-    setNome(nome);
-    setIdade(idade);
-    setCpf(cpf);
-    setEndereco(endereco);
-  }
-
-  void setNome(String nome) {
-    if (nome.isEmpty){
-      throw "Nome não pode ser vazio";
-    }
-    this._nome = nome;
+    _nome = nome;
+    _idade = idade;
+    _cpf = cpf;
+    _endereco = endereco;
   }
 
   String getNome() {
-    return this._nome;
-  }
-
-  void setIdade(int idade) {
-    if (idade < 0){
-      throw "Idade não pode ser menor que 0";
-    }
-    this._idade = idade;
+    return _nome;
   }
 
   int getIdade() {
-    return this._idade;
-  }
-
-  void setCpf(String cpf) {
-    if (cpf.isEmpty){
-      throw "CPF não pode ser vazio";
-    }
-    this._cpf = cpf;
+    return _idade;
   }
 
   String getCpf() {
-    return this._cpf;
-  }
-
-  void setEndereco(Endereco endereco) {
-    this._endereco = endereco;
+    return _cpf;
   }
 
   Endereco getEndereco() {
-    return this._endereco;
+    return _endereco;
   }
 
   void exibirPessoa() {
-    print("///");
-    print("Nome: " + getNome());
-    print("Idade: " + getIdade().toString());
-    print("CPF: " + getCpf());
-    getEndereco().exibirEndereco();
-    print("///");
+    print('///');
+    print('Nome: ' + _nome);
+    print('Idade: ' + _idade.toString());
+    print('CPF: ' + _cpf);
+    _endereco.exibirEndereco();
+    print('///');
   }
-
 }

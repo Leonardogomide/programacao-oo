@@ -1,64 +1,47 @@
+/// Classe Personagem para combate.
 class Personagem {
-
   late String _nome;
   late int _vida;
   late int _ataque;
 
   Personagem(String nome, int vida, int ataque) {
-    setNome(nome);
-    setVida(vida);
-    setAtaque(ataque);
+    _nome = nome;
+    _vida = vida;
+    _ataque = ataque;
   }
 
-  void setNome(String nome) {
-    if (nome.isEmpty){
-      throw "Nome não pode ser vazio";
-    }
-    this._nome = nome;
+  String getNome() {
+    return _nome;
   }
 
-  String getNome(){
-    return this._nome;
+  int getVida() {
+    return _vida;
   }
 
-  void setVida(int vida) {
-    if (vida <= 0){
-      throw "Vida deve ser maior que 0";
-    }
-    this._vida = vida;
+  int getAtaque() {
+    return _ataque;
   }
 
-  int getVida(){
-    return this._vida;
-  }
-
-  void setAtaque(int ataque) {
-    if (ataque <= 0){
-      throw "Ataque deve ser maior que 0";
-    }
-    this._ataque = ataque;
-  }
-
-  int getAtaque(){
-    return this._ataque;
-  }
-
-  bool estaVivo(){
-    return this._vida > 0;
+  bool estaVivo() {
+    return _vida > 0;
   }
 
   void atacar(Personagem inimigo) {
+    // Só ataca se vivo
     if (!estaVivo()) {
-      print(getNome() + " está morto e não pode atacar.");
+      print(_nome + ' está morto e não pode atacar.');
       return;
     }
-    int dano = getAtaque();
-    inimigo._vida = (inimigo._vida - dano).clamp(0, inimigo._vida);
-    print(getNome() + " atacou " + inimigo.getNome() + " causando " + dano.toString() + " de dano.");
+    
+    int dano = _ataque;
+    // Reduz vida inimiga, não abaixo 0
+    inimigo._vida -= dano;
+    if (inimigo._vida < 0) inimigo._vida = 0;
+    
+    print(_nome + ' atacou ' + inimigo._nome + ' causando ' + dano.toString() + ' de dano.');
   }
 
   void exibirStatus() {
-    print("Nome: " + getNome() + " | Vida: " + getVida().toString() + " | Ataque: " + getAtaque().toString());
+    print('Nome: ' + _nome + ' | Vida: ' + _vida.toString() + ' | Ataque: ' + _ataque.toString());
   }
-
 }

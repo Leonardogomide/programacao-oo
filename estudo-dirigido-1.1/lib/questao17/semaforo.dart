@@ -1,33 +1,29 @@
+/// Classe Semaforo simples com ciclo de cores.
 class Semaforo {
+  String _corAtual = 'vermelho';
+  int _tempoRestante = 5;
 
-  late String _corAtual;
-  late int _tempoRestante;
-
-  static const Map<String, int> _tempos = {
+  static const Map<String, int> tempos = {
     'vermelho': 5,
     'verde': 4,
     'amarelo': 2,
   };
 
-  static const Map<String, String> _emojis = {
+  static const Map<String, String> emojis = {
     'vermelho': '🔴',
     'verde': '🟢',
     'amarelo': '🟡',
   };
 
   Semaforo(String corInicial) {
-    _setCorInicial(corInicial);
-    this._tempoRestante = _tempos[this._corAtual]!;
-  }
-
-  void _setCorInicial(String cor) {
-    if (!_tempos.containsKey(cor)){
-      throw "Cor inválida. Use: vermelho, verde ou amarelo";
+    if (tempos.containsKey(corInicial)) {
+      _corAtual = corInicial;
+      _tempoRestante = tempos[corInicial]!;
     }
-    this._corAtual = cor;
   }
 
   void trocarCor() {
+    // Ciclo vermelho -> verde -> amarelo -> vermelho
     if (_corAtual == 'vermelho') {
       _corAtual = 'verde';
     } else if (_corAtual == 'verde') {
@@ -35,18 +31,17 @@ class Semaforo {
     } else {
       _corAtual = 'vermelho';
     }
-    this._tempoRestante = _tempos[_corAtual]!;
+    _tempoRestante = tempos[_corAtual]!;
   }
 
   void reduzirTempo() {
-    this._tempoRestante--;
-    if (this._tempoRestante <= 0) {
+    _tempoRestante--;
+    if (_tempoRestante <= 0) {
       trocarCor();
     }
   }
 
   void exibirEstado() {
-    print(_emojis[_corAtual]! + " " + _corAtual + " - tempo: " + _tempoRestante.toString());
+    print(emojis[_corAtual]! + ' ' + _corAtual + ' - tempo: ' + _tempoRestante.toString());
   }
-
 }

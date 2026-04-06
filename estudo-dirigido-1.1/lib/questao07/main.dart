@@ -1,37 +1,27 @@
-/*
-Crie uma classe Contador com um construtor que inicialize o contador com um valor inicial.
-Crie os seguintes métodos:
-• incrementar() → aumenta o valor em 1
-• decrementar() → diminui o valor em 1
-• zerar() → redefine o valor para 0
-• exibirValor() → mostra o valor atual do contador
-No main(), instancie exatamente 2 contadores diferentes e realize algumas operações com cada um.
-Restrições:
-• o valor inicial deve ser maior ou igual a 0
-• o valor não pode ficar negativo
-• ao decrementar, se o valor estiver em 0, ele deve permanecer em 0
-*/
-
 import 'contador.dart';
 
+// Testa dois contadores
 void main() {
-  Contador contador1 = new Contador(5);
-  contador1.incrementar();
-  contador1.incrementar();
-  contador1.incrementar();
-  contador1.exibirValor();
-  contador1.decrementar();
-  contador1.exibirValor();
-  contador1.zerar();
-  contador1.exibirValor();
-  contador1.decrementar();
-  contador1.exibirValor();
+  print('Contador 1 (inicia em 5):');
+  Contador contador1 = Contador(5);
+  contador1.incrementar(); // 6
+  contador1.incrementar(); // 7
+  contador1.incrementar(); // 8
+  contador1.exibirValor(); // 8
+  contador1.decrementar(); // 7
+  contador1.exibirValor(); // 7
+  contador1.zerar(); // 0
+  contador1.exibirValor(); // 0
+  contador1.decrementar(); // continua 0
+  contador1.exibirValor(); // 0
+  print('');
 
-  Contador contador2 = new Contador(20);
-  contador2.exibirValor();
-  contador2.decrementar();
-  contador2.decrementar();
-  contador2.exibirValor();
-  contador2.zerar();
-  contador2.exibirValor();
+  print('Contador 2 (inicia em 20):');
+  Contador contador2 = Contador(20);
+  contador2.exibirValor(); // 20
+  contador2.decrementar(); // 19
+  contador2.decrementar(); // 18
+  contador2.exibirValor(); // 18
+  contador2.zerar(); // 0
+  contador2.exibirValor(); // 0
 }

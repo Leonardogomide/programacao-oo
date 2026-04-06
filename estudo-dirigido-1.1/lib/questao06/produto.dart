@@ -1,88 +1,80 @@
+/// Classe simples de Produto com desconto por quantidade.
+/// Campos privados.
 class Produto {
-
+  // Código do produto
   late int _codigo;
+  
+  // Nome do produto
   late String _nome;
+  
+  // Preço por unidade
   late double _precoUnitario;
+  
+  // Quantidade comprada
   late int _quantidade;
 
+  /// Construtor com todos os dados
   Produto(int codigo, String nome, double precoUnitario, int quantidade) {
-    setCodigo(codigo);
-    setNome(nome);
-    setPrecoUnitario(precoUnitario);
-    setQuantidade(quantidade);
+    _codigo = codigo;
+    _nome = nome;
+    _precoUnitario = precoUnitario;
+    _quantidade = quantidade;
   }
 
-  void setCodigo(int codigo) {
-    if (codigo <= 0){
-      throw "Código deve ser maior que 0";
-    }
-    this._codigo = codigo;
-  }
-
+  /// Pega código
   int getCodigo() {
-    return this._codigo;
+    return _codigo;
   }
 
-  void setNome(String nome) {
-    if (nome.isEmpty){
-      throw "Nome não pode ser vazio";
-    }
-    this._nome = nome;
-  }
-
+  /// Pega nome
   String getNome() {
-    return this._nome;
+    return _nome;
   }
 
-  void setPrecoUnitario(double preco) {
-    if (preco <= 0){
-      throw "Preço deve ser maior que 0";
-    }
-    this._precoUnitario = preco;
-  }
-
+  /// Pega preço unitário
   double getPrecoUnitario() {
-    return this._precoUnitario;
+    return _precoUnitario;
   }
 
-  void setQuantidade(int quantidade) {
-    if (quantidade <= 0){
-      throw "Quantidade deve ser maior que 0";
-    }
-    this._quantidade = quantidade;
-  }
-
+  /// Pega quantidade
   int getQuantidade() {
-    return this._quantidade;
+    return _quantidade;
   }
 
+  /// Calcula desconto baseado na quantidade
   double calcularDesconto() {
-    int q = getQuantidade();
-    if (q >= 20){
-      return getPrecoUnitario() * getQuantidade() * 0.15;
+    int q = _quantidade;
+    // 20 ou mais: 15%
+    if (q >= 20) {
+      return _precoUnitario * q * 0.15;
     }
-    if (q >= 10){
-      return getPrecoUnitario() * getQuantidade() * 0.10;
+    // 10-19: 10%
+    if (q >= 10) {
+      return _precoUnitario * q * 0.10;
     }
-    if (q >= 5){
-      return getPrecoUnitario() * getQuantidade() * 0.05;
+    // 5-9: 5%
+    if (q >= 5) {
+      return _precoUnitario * q * 0.05;
     }
-    return 0;
+    // Menos: 0
+    return 0.0;
   }
 
+  /// Calcula total com desconto
   double calcularTotal() {
-    return getPrecoUnitario() * getQuantidade() - calcularDesconto();
+    // Preço total menos desconto
+    return _precoUnitario * _quantidade - calcularDesconto();
   }
 
+  /// Mostra resumo do produto
   void exibirResumo() {
-    print("/////");
-    print("Código: " + getCodigo().toString());
-    print("Nome: " + getNome());
-    print("Preço unitário: R\$ " + getPrecoUnitario().toStringAsFixed(2));
-    print("Quantidade: " + getQuantidade().toString());
-    print("Desconto: R\$ " + calcularDesconto().toStringAsFixed(2));
-    print("Total: R\$ " + calcularTotal().toStringAsFixed(2));
-    print("/////");
+    print('/////');
+    print('Código: ' + _codigo.toString());
+    print('Nome: ' + _nome);
+    print('Preço unitário: R\$ ' + _precoUnitario.toStringAsFixed(2));
+    print('Quantidade: ' + _quantidade.toString());
+    print('Desconto: R\$ ' + calcularDesconto().toStringAsFixed(2));
+    print('Total: R\$ ' + calcularTotal().toStringAsFixed(2));
+    print('/////');
   }
-
 }
