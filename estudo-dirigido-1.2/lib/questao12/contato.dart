@@ -5,10 +5,10 @@ class Contato {
 
   Contato(this._nome, this._telefone) {
     if (_nome.isEmpty) {
-      throw ArgumentError('O nome nao pode ser vazio');
+      print('O nome nao pode ser vazio');
     }
     if (_telefone.isEmpty) {
-      throw ArgumentError('O telefone nao pode ser vazio');
+      print('O telefone nao pode ser vazio');
     }
   }
 

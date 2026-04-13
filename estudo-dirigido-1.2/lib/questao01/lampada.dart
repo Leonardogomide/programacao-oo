@@ -1,5 +1,5 @@
 /// Classe simples de Lampada que simula ligar/desligar até queimar.
-/// Campos privados para estado. Queima após 4 ligações (dado alterado).
+/// Campos privados para estado. Queima após 4 ligações.
 class Lampada {
   // Se a lâmpada está ligada ou não
   bool _ligada = false;
@@ -23,7 +23,6 @@ class Lampada {
       return;
     }
     
-    // Se ligou 4 vezes ou mais, queima (hardcode alterado para 4)
     if (_quantidadeLigacoes >= 4) {
       _queimada = true;
       _ligada = false;

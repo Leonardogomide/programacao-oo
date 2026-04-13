@@ -1,9 +1,8 @@
 import 'aluno.dart';
 
-// Função principal para testar alunos (estilo 1.1 verboso, dados variados)
 void main() {
   // Aluno1 aprovado
-  Aluno aluno1 = Aluno(ra: "2023001", nome: "Pedro", notaFinal: 8.0);
+Aluno aluno1 = Aluno(ra: "2023001", nome: "Roberto", notaFinal: 8.5);
   print('Boletim do aluno 1:');
   aluno1.exibirBoletim();
   print('');

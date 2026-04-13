@@ -7,7 +7,7 @@ class Pessoa {
 
   Pessoa(this._nome, this._carteira) {
     if (_nome.isEmpty) {
-      throw ArgumentError('O nome nao pode ser vazio');
+      print('O nome nao pode ser vazio');
     }
   }
 

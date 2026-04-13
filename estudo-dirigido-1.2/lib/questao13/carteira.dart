@@ -4,7 +4,7 @@ class Carteira {
 
   Carteira(this._saldo) {
     if (_saldo < 0) {
-      throw ArgumentError('O saldo nao pode ser negativo');
+      print('O saldo nao pode ser negativo');
     }
   }
 

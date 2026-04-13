@@ -1,5 +1,4 @@
 /// Classe simples de Usuario para perfil.
-/// Campos privados, apelido optional. Dados alterados.
 class Usuario {
   // Nome completo
   late String _nome;
@@ -13,14 +12,16 @@ class Usuario {
   /// Construtor com optional apelido
   Usuario(String nome, String email, [String? apelido]) {
     if (nome.isEmpty) {
-      throw ArgumentError('O nome não pode ser vazio');
+      print('O nome não pode ser vazio');
+    } else {
+      _nome = nome;
     }
     if (email.isEmpty) {
-      throw ArgumentError('O email não pode ser vazio');
+      print('O email não pode ser vazio');
+    } else {
+      _email = email;
+      _apelido = apelido ?? nome;
     }
-    _nome = nome;
-    _email = email;
-    _apelido = apelido ?? nome;
   }
 
   /// Exibe perfil com concatenação
@@ -38,4 +39,3 @@ class Usuario {
   
   String getApelido() => _apelido;
 }
-

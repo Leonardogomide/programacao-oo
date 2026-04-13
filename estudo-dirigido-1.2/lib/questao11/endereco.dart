@@ -6,13 +6,13 @@ class Endereco {
 
   Endereco(this._rua, this._numero, this._cidade) {
     if (_rua.isEmpty) {
-      throw ArgumentError('A rua nao pode ser vazia');
+      print('A rua nao pode ser vazia');
     }
     if (_numero < 1) {
-      throw ArgumentError('O numero deve ser maior que 0');
+      print('O numero deve ser maior que 0');
     }
     if (_cidade.isEmpty) {
-      throw ArgumentError('A cidade nao pode ser vazia');
+      print('A cidade nao pode ser vazia');
     }
   }
 

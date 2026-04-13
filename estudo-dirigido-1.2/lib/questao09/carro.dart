@@ -5,10 +5,10 @@ class Carro {
 
   Carro(this._modelo, this._quilometragem) {
     if (_modelo.isEmpty) {
-      throw ArgumentError('O modelo nao pode ser vazio');
+      print('O modelo nao pode ser vazio');
     }
     if (_quilometragem < 0) {
-      throw ArgumentError('A quilometragem nao pode ser negativa');
+      print('A quilometragem nao pode ser negativa');
     }
   }
 

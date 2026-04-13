@@ -5,10 +5,10 @@ class Televisao {
 
   Televisao(this._canal, this._volume) {
     if (_canal < 1) {
-      throw ArgumentError('O canal deve ser maior que 0');
+      print('O canal deve ser maior que 0');
     }
     if (_volume < 0) {
-      throw ArgumentError('O volume nao pode ser negativo');
+      print('O volume nao pode ser negativo');
     }
   }
 

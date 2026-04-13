@@ -1,5 +1,3 @@
-/// Classe simples de Aluno para calcular aprovação.
-/// Campos privados late. Limite aprovação alterado para 6.5 (hardcode change).
 class Aluno {
   // RA do aluno
   late String _ra;
@@ -13,25 +11,27 @@ class Aluno {
   /// Construtor named com validações (nota 0-10)
   Aluno({required String ra, required String nome, required double notaFinal}) {
     if (ra.isEmpty) {
-      throw ArgumentError('O RA não pode ser vazio');
+      print('O RA não pode ser vazio');
+    } else {
+      _ra = ra;
     }
     if (nome.isEmpty) {
-      throw ArgumentError('O nome não pode ser vazio');
+      print('O nome não pode ser vazio');
+    } else {
+      _nome = nome;
     }
     if (notaFinal < 0 || notaFinal > 10) {
-      throw ArgumentError('A nota deve estar entre 0 e 10');
+      print('A nota deve estar entre 0 e 10');
+    } else {
+      _notaFinal = notaFinal;
     }
-    _ra = ra;
-    _nome = nome;
-    _notaFinal = notaFinal;
   }
 
-  /// Verifica aprovação (média >=6.5 alterado)
   bool aprovado() {
     return _notaFinal >= 6.5;
   }
 
-  /// Exibe boletim com concatenação e estilo 1.1
+  /// Exibe boletim com concatenação 
   void exibirBoletim() {
     print("RA: " + _ra);
     print("Nome: " + _nome);
@@ -47,4 +47,3 @@ class Aluno {
   
   double getNotaFinal() => _notaFinal;
 }
-

@@ -1,8 +1,7 @@
 import 'produto.dart';
 
-// Função principal para testar produtos (estilo 1.1 com múltiplos e dados variados)
 void main() {
-  // Primeiro produto: Teclado com estoque baixo (alterado)
+  // Primeiro produto: Teclado com estoque baixo
   Produto produto1 = Produto('Teclado', 2500.00, 7);
   print('Primeiro produto:');
   produto1.exibirFicha();

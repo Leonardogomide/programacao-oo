@@ -1,6 +1,5 @@
 import 'lampada.dart';
 
-// Função principal para testar a lâmpada no estilo estudo 1.1
 void main() {
   // Cria uma nova lâmpada
   Lampada lampada = Lampada();

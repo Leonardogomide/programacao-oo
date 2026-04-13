@@ -6,13 +6,13 @@ class Personagem {
 
   Personagem(this._nome, this._vida, this._energia) {
     if (_nome.isEmpty) {
-      throw ArgumentError('O nome nao pode ser vazio');
+      print('O nome nao pode ser vazio');
     }
     if (_vida < 0) {
-      throw ArgumentError('A vida nao pode ser negativa');
+      print('A vida nao pode ser negativa');
     }
     if (_energia < 0) {
-      throw ArgumentError('A energia nao pode ser negativa');
+      print('A energia nao pode ser negativa');
     }
   }
 

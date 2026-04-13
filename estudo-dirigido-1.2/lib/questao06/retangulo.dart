@@ -10,13 +10,15 @@ class Retangulo {
   /// Construtor padrão
   Retangulo(double largura, double altura) {
     if (largura <= 0) {
-      throw ArgumentError('Largura deve ser maior que 0');
+      print('Largura deve ser maior que 0');
+    } else {
+      _largura = largura;
     }
     if (altura <= 0) {
-      throw ArgumentError('Altura deve ser maior que 0');
+      print('Altura deve ser maior que 0');
+    } else {
+      _altura = altura;
     }
-    _largura = largura;
-    _altura = altura;
   }
 
   /// Construtor unitário
@@ -28,10 +30,11 @@ class Retangulo {
   /// Construtor quadrado
   Retangulo.quadrado(double lado) {
     if (lado <= 0) {
-      throw ArgumentError('Lado deve ser maior que 0');
+      print('Lado deve ser maior que 0');
+    } else {
+      _largura = lado;
+      _altura = lado;
     }
-    _largura = lado;
-    _altura = lado;
   }
 
   /// Calcula área
@@ -58,4 +61,3 @@ class Retangulo {
   
   double getAltura() => _altura;
 }
-

@@ -1,14 +1,10 @@
 import 'endereco.dart';
 
 class Cliente {
-
   String _nome;
   Endereco _endereco;
 
   Cliente(this._nome, this._endereco) {
-    if (_nome.isEmpty) {
-      throw ArgumentError('O nome nao pode ser vazio');
-    }
   }
 
   Endereco get endereco => _endereco;
@@ -22,9 +18,9 @@ class Cliente {
         );
 
   exibir() {
-    print("Nome: $_nome");
+    print("Nome: " + _nome);
     _endereco.exibir();
     print("=======================================");
   }
-
 }
+
